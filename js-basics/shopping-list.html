@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>My Shopping List</h3>
+
+    <label for="">Enter a new item</label>
+    <input type="text" id="new-item">
+    <input type="submit" name="" id="btn">
+
+    <ul></ul>
+
+    <script>
+
+        const new_item = document.getElementById('new-item');
+        const btn = document.getElementById('btn');
+        const ul = document.querySelector('ul');
+
+
+        btn.addEventListener("click", ()=> {
+            const item = document.createElement("li");
+            item.textContent = new_item.value;
+            
+            const delete_button = document.createElement('button');
+            delete_button.textContent = "Delete";
+            delete_button.addEventListener("click", ()=> {
+                item.remove();
+            })
+
+            item.appendChild(delete_button);
+
+            ul.appendChild(item);
+        });
+
+
+    </script>
+
+
+</body>
+</html>
