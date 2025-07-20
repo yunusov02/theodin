@@ -4,73 +4,442 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .sidebar {
-    width: 250px;
-    background-color: rgb(24, 119, 242); /* Facebook blue */
+    width: 260px;
+    background-color: rgb(24, 119, 242); /* deep blue */
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 24px;
     font-family: 'Segoe UI', sans-serif;
-    
-    position: fixed; /* Makes the sidebar fixed on the page */
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    height: 100vh; /* Ensures it spans the full height */
-    z-index: 1000; /* Optional: keeps it on top of other elements */
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-header {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    gap: 12px;
+    margin-bottom: 36px;
 }
 
-.logo img {
-    filter: brightness(0) invert(1); /* makes black SVGs appear white */
-}
-
-.sidebar-header .logo img {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-    fill: red;
+.logo svg {
+    width: 36px;
+    height: 36px;
+    fill: white;
 }
 
 .company-name {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .sidebar-group {
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 }
 
 .sidebar-item {
     display: flex;
     align-items: center;
-    padding: 10px 8px;
-    margin-bottom: 5px;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
+    padding: 12px 10px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: pointer;
+    color: white;
 }
 
 .sidebar-item:hover {
-    background-color: #374151;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
 }
 
-.sidebar-item img {
+.sidebar-item svg {
     width: 28px;
     height: 28px;
-    margin-right: 16px;
-    filter: brightness(0) invert(1); /* makes black SVGs appear white */
+    margin-right: 12px;
+    fill: white;
+    flex-shrink: 0;
 }
-
 
 .sidebar-item span {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 500;
 }
+
+.sidebar-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.main {
+    margin-left: 250px;               /* Space for sidebar */
+    padding: 30px 40px;               /* Better padding */
+    background-color: #f3f4f6;        /* Light gray, more modern */
+    min-height: 100vh;                /* Ensure full height */
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;                        /* Use gap instead of row-gap */
+    padding: 20px 30px;               /* Add internal spacing */
+    background-color: white;
+    border-radius: 10px;              /* Rounded corners */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    border: 1px solid #e5e7eb;        /* Softer border color */
+}
+
+
+.top-navbar {
+    display: flex;
+    align-items: center; /* instead of top */
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f1f1;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.search-form svg {
+    width: 24px;
+    height: 24px;
+    fill: #888;
+}
+
+.search-form input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1rem;
+    padding-left: 5px;
+    flex: 1;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile svg {
+    width: 32px;
+    height: 32px;
+    fill: black;
+    cursor: pointer;
+}
+
+.profile p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+
+.bottom-navbar, .follower, .button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom-navbar {
+    padding: 20px;
+}
+
+
+.follower-image svg {
+    width: 80px;
+    height: 80px;
+    fill: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+.follower-information {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-weight: 700;
+}
+
+
+.follower-name {
+    font-size: 28px;
+}
+
+.button-group button {
+    font-weight: 600;
+    background-color: rgb(24, 119, 242);
+    color: white;
+    padding: 10px 15px;
+    border-style: none;
+    margin-left: 20px;
+    font-size: 16px;
+    border-radius: 999px;
+}
+
+.main-bar {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+
+.left-main-bar {
+    flex: 2;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left-main-bar h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+    gap: 16px;
+}
+
+
+.project {
+    flex: 0 0 calc(50% - 8px); 
+    background-color: #f9f9f9;
+    border-left: 4px solid #ff7b00;
+    padding: 16px 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.project:hover {
+    background-color: #f1f1f1;
+}
+
+.project-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.project-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.project-actions svg {
+    width: 22px;
+    height: 22px;
+    fill: #666;
+    transition: fill 0.2s ease;
+    cursor: pointer;
+}
+
+.project-actions svg:hover {
+    fill: #ff7b00;
+}
+
+.right-main-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* ANNOUNCEMENTS */
+.announcements {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.announcements h3 {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.announce {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.new-announce {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.new-announce:last-child {
+    border-bottom: none;
+}
+
+.announce-title {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 4px;
+}
+
+.announce-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* TRENDING */
+.trending {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.trending h3 {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.trend {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.new-trend {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.new-trend svg {
+    width: 36px;
+    height: 36px;
+    fill: #555;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.trend-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.trend-tag {
+    font-weight: 600;
+    color: #444;
+}
+
+.trend-desc {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+
+/* Layout: Stack sidebar on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 16px 20px;
+      box-shadow: none;
+    }
+  
+    .sidebar-header {
+      margin-bottom: 0;
+    }
+  
+    .sidebar-group {
+      display: none; /* hide sidebar items on mobile or toggle with JS */
+    }
+  
+    .main {
+      margin-left: 0;
+      padding: 20px;
+    }
+  
+    .main-bar {
+      flex-direction: column;
+    }
+  
+    .left-main-bar,
+    .right-main-bar {
+      width: 100%;
+      padding: 16px;
+    }
+  
+    .projects {
+      grid-template-columns: 1fr; /* Stack projects vertically */
+    }
+  
+    .project {
+      flex: 1 1 100%;
+    }
+  
+    .navbar {
+      padding: 16px;
+    }
+  
+    .top-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  
+    .bottom-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  
+    .button-group button {
+      margin-left: 5px;
+    }
+  
+    .profile {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+  
